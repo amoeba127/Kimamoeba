@@ -1,0 +1,555 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <style>
+            @font-face {
+                font-family: 'HBIOS-SYS';
+                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
+                font-weight: normal;
+                font-style: normal;
+            }
+
+            body{
+                font-family: 'HBIOS-SYS';
+            }
+            
+            header {
+                background-color: #ffffff;
+                padding: 10px 20px;
+            }
+
+            nav {
+                display: flex;
+                align-items: center;
+                position: relative;
+            }
+
+            #logo {
+                flex: 0 0 auto;
+                margin-right: auto; /* 로고를 왼쪽에 치우치게 함 */
+                margin-left: 20px;
+            }
+
+            #logo img {
+                width: 200px;
+            }
+
+            .menu {
+                width:auto;
+                list-style: none;
+                display: flex;
+                padding: 20px 0px;
+                margin: 5px 20px;
+                flex: 1 0 auto;
+                justify-content: center;
+                gap: 8%;
+                z-index: 10;
+            }
+
+            .menu li {
+                position: relative;
+            }
+
+            .menu li a {
+                text-decoration: none;
+                color: #000000;
+                padding: 10px;
+                transition: color 0.3s;
+                font-size: 22px;
+            }
+
+            .submenu {
+                background-attachment: fixed; /*확인요망*/
+                background-color: hsla(0, 0%, 88%, 0);
+                display: none;
+                position: absolute;
+                top: 270%;
+                left:50%;
+                transform: translateX(-50%);
+                list-style: none;
+                padding: 10px 0;
+                text-align: center;
+                margin: 0 auto;
+                z-index: 10; /* 메뉴가 다른 요소 위에 나타나도록 설정 */
+            }
+
+            .submenu li {
+                margin: 0;
+                flex: 1;
+            }
+
+            .submenu li a {
+                padding: 10px 20px;  /*회색깔 그거 넓이*/
+                font-size: 15px;
+                display: inline-block;
+                white-space: nowrap;
+                text-align: center;
+            }
+
+            .menu:hover .submenu {
+                display: block;
+            }
+
+            #login_img {
+                flex: 0 0 auto;
+                width: 30px;
+                margin-left: 20px; /* 오른쪽에 치우치게 하고 메뉴와 간격 설정 */
+                margin-right: 22px;
+            }
+
+            #alram_img {
+                flex: 0 0 auto;
+                width: 30px;
+                margin-left: 20px; /* 오른쪽에 치우치게 하고 메뉴와 간격 설정 */
+                margin-right: 10px;
+            }
+
+            #alram_img img {
+                width: 80%; /* 부모 div의 너비에 맞춤 */
+            }
+
+            #login_img img{
+                width: 100%;
+            }
+
+            .white {
+                width: 120%;
+                height: 170px;
+                background-color: hsla(0, 0%, 88%, 0.735);
+                display: none;
+                position: absolute;
+                top: 82px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 4;
+            }
+
+            .black_line {
+                width: 120%;
+                height: 2px;
+                background-color: hsl(0, 0%, 0%);
+                display: inline-block;
+                position: absolute;
+                top: 80px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 5;
+            }
+
+
+
+
+            
+            .contents_events_img{
+                position: absolute;
+                left: 280px;
+                top:320px;
+                z-index:3;
+            }
+
+            .contents_events_img img{
+                width: 80%;
+                opacity: 90%;
+            }
+
+            .contents_img {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                left: 60px;
+                top: 60px;
+                z-index: 2;
+            }
+
+            .slide {
+                display: none;
+                position: absolute;
+                top: 10px;
+                left: 100%;
+                transition: left 0.5s ease-in-out;
+            }
+
+            .slide.active {
+                display: block;
+                left: 0;
+            }
+
+            .slide.previous {
+                left: -100%;
+            }
+
+            .slide.next {
+                transform: translateX(100%);
+            }
+
+            .slide img {
+                width: 114%;
+                height: auto;
+                cursor: pointer;
+            }
+
+            .slide .prev-btn,
+            .slide .next-btn {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 100px;
+                height: 100px;
+                background-color: rgba(158, 158, 158, 0.5);
+                cursor: pointer;
+                z-index: 10;
+            }
+
+            .slide .prev-btn {
+                left: 0;
+            }
+
+            .slide .next-btn {
+                right: -135px;
+            }
+
+
+
+
+            .black_background {
+                width: 100%;
+                height: 600px;
+                background:linear-gradient(to bottom,#ebebeb, #ebebeb);
+                display: inline-block;
+                position: absolute;
+                top: 98px;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+            }
+
+
+            .game_start{
+                position: absolute;
+                top: 165px;
+                right: 81px;
+                z-index: 10;
+            }
+
+            .game_start img {
+                width: 400px;
+            }
+
+            .game_login{
+                position: absolute;
+                top: 440px;
+                right: 81px;
+                z-index: 10;
+            }
+
+            .game_login img{
+                width:400px;
+            }
+
+            .intro_{
+                position: absolute;
+                left: 30px;
+                top: 730px;
+                display: flex;
+                justify-content: space-between;
+                width: 42%;
+
+            }
+
+            #intro1{
+                font-size: 30px;
+                list-style-type: none;
+            }
+            
+            #intro2{
+                font-size: 30px;
+                list-style-type: none;
+                left: 300px;
+            }
+
+            .intro_menu {
+                position: absolute;
+                left: 60px;
+                top: 800px;
+                display: flex;
+                justify-content: space-between;
+                width: 22.5%;
+                z-index: 9;
+            }
+
+            .intro_menu li{
+                list-style-type: none;
+                font-size: 22px;
+            }
+
+            .intro_menu_src{
+                position: absolute;
+                left: 70px;
+                top:760px;  
+                z-index: 2;
+            }
+
+            .intro_menu_src img{
+                width: 75%;
+
+            }
+
+            .intro_menu2 {
+                position: absolute;
+                left:655px;
+                top: 800px;
+                display: flex;
+                justify-content: space-between;
+                width: 18.4%;
+                z-index: 9;
+            }
+
+            .intro_menu2 li{
+                list-style-type: none;
+                font-size: 22px;
+            }
+
+            .intro_menu_src2{
+                position: absolute;
+                left: 630px;
+                top:760px;  
+                z-index: 2;
+            }
+
+            .intro_menu_src2 img{
+                width: 75%;
+
+            }
+
+        </style>
+    </head>
+
+    
+    <body>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css">
+        <header>
+            <nav>
+                <div class="black_line"></div>
+                <div class="white"></div>
+                
+                <class id="logo">
+                    <a href="https://www.naver.com/">
+                        <img src="https://postfiles.pstatic.net/MjAyNDA2MDFfNzQg/MDAxNzE3MTY4MDM2Njk2.X3FFK5pUlnKCcJ6VC4XgE14wKEfNfE5ggkU9GVZqXBcg.AjM68FXN6fHVHgQr5eSw-TPRPoDCt5q6RqA83W9TKE0g.PNG/1-logo.png?type=w966">
+                    </a>
+                </class>
+
+                <ul class="menu"> <!--a hred #~ 앵커, 즉 그곳으로 이동하게 해주는 것임-->
+                    <li class="new_so">
+                        <a href="https://www.naver.com/">새소식</a>
+                        <ul class="submenu">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="#">업데이트</a></li>
+                            <li><a href="#">이벤트</a></li>
+                        </ul>
+                    </li>
+                    <li class="game_in">
+                        <a href="https://www.naver.com/">게임 소개</a>
+                        <ul class="submenu">
+                            <li><a href="#">게임 소개</a></li>
+                            <li><a href="#">스토리 소개</a></li>
+                            <li><a href="#">캐릭터 소개</a></li>
+                            <li><a href="#">게임 가이드</a></li>
+                        </ul>
+                    </li>
+                    <li class="community">
+                        <a href="https://www.naver.com/">커뮤니티</a>
+                        <ul class="submenu">
+                            <li><a href="#">소통 게시판</a></li>
+                            <li><a href="#">문의 게시판</a></li>
+                            <li><a href="#">공략 게시판</a></li>
+                            <li><a href="#">길드 게시판</a></li>
+                        </ul>
+                    </li>
+                    <li class="ranking">
+                        <a href="https://www.naver.com/">랭킹</a>
+                        <ul class="submenu">
+                            <li><a href="#">레벨 랭킹</a></li>
+                            <li><a href="#">맵 랭킹</a></li>
+                            <li><a href="#">이벤트 랭킹</a></li>
+                        </ul>
+                    </li>
+                    <li class="plz">
+                        <a href="https://www.naver.com/">고객 지원</a>
+                        <ul class="submenu">
+                            <li><a href="#">도움말</a></li>
+                            <li><a href="#">다운로드</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <div id="alram_img">
+                    <a href="https://www.naver.com/">
+                        <img width="20%" src="https://postfiles.pstatic.net/MjAyNDA1MTlfMjU3/MDAxNzE2MTI4Mjk4MTQx.TeqFEljj4ROsAYuk6MJAWrloJ4hjXqYV2AxUmAUp8tgg.fJI5s0RUkvAdAeP3ZYqbldgK07jVSg4ZDVLdbb6_L_Qg.PNG/KakaoTalk_20240519_231541563_07.png?type=w966">
+                    </a>
+                </div>
+                <div id="login_img">
+                    <a href="https://www.naver.com/">
+                        <img width="20%" src="https://postfiles.pstatic.net/MjAyNDA1MTlfNjgg/MDAxNzE2MTI4Mjk4MTQy.gBNFizHg89in8XbdP7aebtd6PEMa5UrLxfUB-R9TRj4g.kkSeaE0puvz1FLQ65Xm9EGGMbAYUtlKrD1CLQrjsFEMg.PNG/KakaoTalk_20240519_231541563_06.png?type=w966">
+                    </a>
+                </div>
+            </nav>
+        </header>
+
+        <contents>
+            <background>
+                <div class="black_background"></div>
+            </background>
+
+            <article>
+                <div class="contents_events_img">
+                    <img src="https://postfiles.pstatic.net/MjAyNDA2MDFfMTQw/MDAxNzE3MTY3OTE4MDMy.JH_pBEjjDpLioUyy_UUhrGYTQ1-UbRtqBfK87yzrVSUg.4WX08f8WHdMAfDkryOTvFAaJjUYusoIQvIh7bj0IKyMg.PNG/KakaoTalk_20240529_123200113.png?type=w966">
+                </div>
+                <div class="contents_img">
+                    <div id="contents_img1" class="slide active">
+                        <a href="javascript:void(0)" onclick="prevSlide()">
+                            <div class="prev-btn"></div>
+                        </a>
+                        <a href="javascript:void(0)" onclick="nextSlide()">
+                            <div class="next-btn"></div>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <img src="https://postfiles.pstatic.net/MjAyNDA1MzBfMTc1/MDAxNzE3MDY5MjY0MTIw.9OXWoRNoZALXF8cB1184KSIUppGJvB0R6Cu3LBufyB4g.jnbSlQk3F75ZCb510JQ-JIg19oREm1-_6teQf5bq5o0g.PNG/export202405302039507031.png?type=w966" alt="Image 1">
+                        </a>
+                    </div>
+                    <div id="contents_img2" class="slide">
+                        <a href="javascript:void(0)" onclick="prevSlide()">
+                            <div class="prev-btn"></div>
+                        </a>
+                        <a href="javascript:void(0)" onclick="nextSlide()">
+                            <div class="next-btn"></div>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <img src="https://postfiles.pstatic.net/MjAyNDA1MzBfMTMw/MDAxNzE3MDY5MjYzOTUw.pZxn1bjIAAqBJXqwdIbvzZghzL6_SpnnU6qv6BFW6H0g.QeNyjB_o4WrWS1a_xei2fvZipEsvlopAa58p8Uq_kE8g.PNG/export202405302039480352.png?type=w966" alt="Image 2">
+                        </a>
+                    </div>
+                    <div id="contents_img3" class="slide">
+                        <a href="javascript:void(0)" onclick="prevSlide()">
+                            <div class="prev-btn"></div>
+                        </a>
+                        <a href="javascript:void(0)" onclick="nextSlide()">
+                            <div class="next-btn"></div>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <img src="https://postfiles.pstatic.net/MjAyNDA1MzBfMTYx/MDAxNzE3MDY5MjYzOTc0.peLksEVTvTKlfDxUhKM-TqESDRq8IqDWiEuWlZwL8Ycg.euG452u_vcDV6Nbs7nBlSAAzBgJbEq4BmDJ17R20Hnkg.PNG/export202405302039449245.png?type=w966" alt="Image 3">
+                        </a>
+                    </div>
+                    <div id="contents_img4" class="slide">
+                        <a href="javascript:void(0)" onclick="prevSlide()">
+                            <div class="prev-btn"></div>
+                        </a>
+                        <a href="javascript:void(0)" onclick="nextSlide()">
+                            <div class="next-btn"></div>
+                        </a>
+                        <a href="https://www.naver.com/">
+                            <img src="https://postfiles.pstatic.net/MjAyNDA1MzBfMTg5/MDAxNzE3MDY5MjY0MDQ4.HhdJAUgTZ4R94oHX5fnxwSZiOW-RM1DhhP6p1AwirSAg.5dfAQti3iBlyxuaSUGGFBXotq3xuX-iDUc5d4xrDu4og.PNG/export202405302039367691.png?type=w966" alt="Image 4">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="game_start">
+                    <a href="https://www.naver.com/">
+                        <img src="https://postfiles.pstatic.net/MjAyNDA2MDFfMjk5/MDAxNzE3MTY4MDE1MzAz.kFyryGSivHGTEtg0IbTpG-BrH9t0mFjTYgGS9tHzcTUg.vF2Xd-MmZisTpv7Zcq8yDrMbwLBtbSG9mrAfqEueH3Eg.PNG/KakaoTalk_20240519_231541563_05.png?type=w966">
+                    </a>
+                </div>
+
+                <div class="game_login">
+                    <a href="game_login">
+                        <img src="https://postfiles.pstatic.net/MjAyNDA2MDFfOTkg/MDAxNzE3MTY4MDE1MzAx._ttDyrrkJ2fT7mQ7Jerjc7pSb1XUXTtguliaEnldqK8g.mRx0_vBa0_rdsVvjfB1H_owF9Nq-Wht8gvhNmomc7KYg.PNG/KakaoTalk_20240519_231541563_04.png?type=w966">
+                    </a>
+                </div>
+            </article>
+
+            <intro>
+                <ul class="intro_">
+                    <li id="intro1">게임 소식 </li>
+                    <li id="intro2">게임 혜택 </li>
+                </ul>
+            
+                <ul class=intro_menu>
+                    <li>공지사항</li>
+                    <li>업데이트</li>
+                    <li>이벤트</li>
+                </ul>
+
+                <ul class="intro_menu2">
+                    <li>복귀유저</li>
+                    <li>VIP유저</li>
+                </ul>
+
+                <div class="intro_menu_src">
+                    <img src="https://postfiles.pstatic.net/MjAyNDA1MzFfMjUx/MDAxNzE3MDk1NjM5ODc3.7o5mrXL982YLiVZHxEwQLkM349IQRjFey3pZT8g86Ccg.WZ16PH0Q7quXOEYkvXvE5Gtj6KwCw47keMFGYVJia8Yg.PNG/KakaoTalk_20240531_040022823.png?type=w966">
+                </div>
+                <div class="intro_menu_src2">
+                    <img src="https://postfiles.pstatic.net/MjAyNDA1MzFfMTMg/MDAxNzE3MDk1NjM5ODc3.PKhgaNgoPxtIAb5xkdyt1bP7GLIKw5qPLmFjWS_NPS8g.SrsQTR5EuTNIxWPNCsT81jSd-zA6xcNT427uEyKjRv4g.PNG/4.png?type=w966">
+                </div>
+
+                <div class=""
+            </intro>
+        </contents>
+
+        <footer></footer>
+
+
+        <script>
+            const menu = document.querySelector('.menu');
+            const whiteBox = document.querySelector('.white');
+
+            menu.addEventListener('mouseenter', () => {
+                whiteBox.style.display = 'block';
+            });
+
+            menu.addEventListener('mouseleave', () => {
+                whiteBox.style.display = 'none';
+            });
+
+
+
+
+
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            let currentSlide = 0;
+
+            function showSlide(n) {
+                slides.forEach(slide => slide.classList.remove('active', 'previous', 'next'));
+
+                slides[n].classList.add('active');
+                if (n === 0) {
+                    slides[totalSlides - 1].classList.add('previous');
+                    slides[n + 1].classList.add('next');
+                } else if (n === totalSlides - 1) {
+                    slides[n - 1].classList.add('previous');
+                    slides[0].classList.add('next');
+                } else {
+                    slides[n - 1].classList.add('previous');
+                    slides[n + 1].classList.add('next');
+                }
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            function prevSlide() {
+                currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+                showSlide(currentSlide);
+            }
+
+            // Show the first slide
+            showSlide(currentSlide);
+
+            // Automatic slideshow
+            setInterval(nextSlide, 3000);
+
+        </script>
+    </body>
+
+</html>
