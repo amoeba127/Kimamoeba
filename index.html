@@ -259,7 +259,7 @@
                 top: 730px;
                 display: flex;
                 justify-content: space-between;
-                width: 42%;
+                width: 693px;
 
             }
 
@@ -280,7 +280,7 @@
                 top: 800px;
                 display: flex;
                 justify-content: space-between;
-                width: 22.5%;
+                width: 373px;
                 z-index: 9;
             }
 
@@ -307,7 +307,7 @@
                 top: 800px;
                 display: flex;
                 justify-content: space-between;
-                width: 18.4%;
+                width: 307px;
                 z-index: 9;
             }
 
@@ -327,6 +327,152 @@
                 width: 75%;
 
             }
+
+            .click_intro {
+            position: absolute;
+            left: 480px;
+            top: 756px;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(0, 0, 255, 0); /* 반투명 파란색으로 영역 표시 (필요 시 제거 가능) */
+            cursor: pointer;
+            z-index: 15;
+        }
+
+        .click_intro2 {
+            position: absolute;
+            left: 1037.5px;
+            top: 756px;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(0, 0, 255, 0); /* 반투명 파란색으로 영역 표시 (필요 시 제거 가능) */
+            cursor: pointer;
+            z-index: 15;
+        }
+
+        .click_page1 {
+            position: absolute;
+            left: 1037.5px;
+            top: 756px;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(0, 0, 255, 0); /* 반투명 파란색으로 영역 표시 (필요 시 제거 가능) */
+            cursor: pointer;
+            z-index: 15;
+        }
+
+
+        .intro_menu_btn{
+            position: absolute;
+            left:71px;
+            top:795.5px;
+            display: flex;
+            justify-content: space-between;
+            width: 447px;
+            height: 58px;
+            z-index: 50;
+            opacity: 50%;
+        }
+
+        .intro_menu_btn2{
+            position: absolute;
+            left: 631px;
+            top:795.5px;
+            display: flex;
+            justify-content: space-between;
+            width: 447px;
+            height: 58px;
+            z-index: 50;
+            opacity: 50%;
+        }
+
+        .intro_menu_btn button{
+            cursor: pointer;
+        }
+
+        .content_menu {
+            display: none;
+            border: 5px solid #6b000000;
+            width: 300px;
+            top:1700px;
+        }
+
+        .content_menu.active {
+            display: block;
+        }
+
+        .intro_menu_content{
+            position: absolute;
+            top:855px;
+            left:31px;
+            z-index: 90;
+        }
+
+        .menu_introduce_content{
+            list-style-type: none;
+        }
+
+        .menu_introduce_content li{
+            font-size: 15px;
+            justify-content: last baseline;
+            height: 58.2px;
+        }
+
+        .menu_update_content{
+            list-style-type: none;
+        }
+
+        .menu_update_content li{
+            font-size: 15px;
+            justify-content: last baseline;
+            height: 58.2px;
+        }
+
+        .menu_event_content{
+            list-style-type: none;
+        }
+
+        .menu_event_content li{
+            font-size: 15px;
+            justify-content: last baseline;
+            height: 58.2px;
+        }
+
+        .menu_benefit1_content{
+            list-style-type: none;
+        }
+
+        .menu_benefit1_content li{
+            font-size: 15px;
+            justify-content: last baseline;
+            height: 58.2px;
+        }
+
+        .menu_benetfit2_content{
+            list-style-type: none;
+        }
+
+        .menu_benetfit2_content li{
+            font-size: 15px;
+            justify-content: last baseline;
+            height: 58.2px;
+        }
+
+
+        .c_l1{
+            position: absolute;
+            top:910px;
+            left: 68px;
+            width: 450px;
+        }
+        
+        .c_l2{
+            position: absolute;
+            top:910px;
+            left: 630px;
+            width: 450px;
+        }
+
 
         </style>
     </head>
@@ -471,6 +617,7 @@
                     </div>
                 </article>
 
+
                 <intro>
                     <ul class="intro_">
                         <li id="intro1">게임 소식 </li>
@@ -483,10 +630,77 @@
                         <li>이벤트</li>
                     </ul>
 
+                    <div class="content_line">
+                        <img class="c_l1" src="img/9.contents_line.png">
+                        <img class="c_l2" src="img/9.contents_line.png">
+                    </div>
+
+                    <div class="intro_menu_btn">
+                        <button onclick="showContent('menu_introduce')">공지사항공백공백공백</button>
+                        <button onclick="showContent('menu_update')">업데이트공백공백공백</button>
+                        <button onclick="showContent('menu_event')">이벤트공백공백공백공</button>
+                    </div>
+                
+                    <div class="intro_menu_btn2">
+                        <button onclick="showContent('menu_benefit1')">복귀유저공백공백공백공백공백공백백.</button>
+                        <button onclick="showContent('menu_benefit2')">VIP유저공백공백공백공백공백공백111</button>
+                    </div>
+                
+                    <div class="intro_menu_content">
+                        <div id="menu_introduce" class="content_menu">
+                            <ul class="menu_introduce_content">
+                                <li>공지사항내용1</li>
+                                <li>공지사항내용2</li>
+                                <li>공지사항내용3</li>
+                                <li>공지사항내용4</li>
+                                <li>공지사항내용5</li>
+                            </ul>
+                        </div>
+                        <div id="menu_update" class="content_menu">
+                            <ul class="menu_update_content">
+                                <li>업데이트내용1</li>
+                                <li>업데이트내용2</li>
+                                <li>업데이트내용3</li>
+                                <li>업데이트내용4</li>
+                                <li>업데이트내용5</li>
+                            </ul>
+                        </div>
+                        <div id="menu_event" class="content_menu">
+                            <ul class="menu_event_content">
+                                <li>이벤트내용1</li>
+                                <li>이벤트내용2</li>
+                                <li>이벤트내용3</li>
+                                <li>이벤트내용4</li>
+                                <li>이벤트내용5</li>
+                            </ul>
+                        </div>
+                        <div id="menu_benefit1" class="content_menu">
+                            <ul class="menu_benefit1_content">
+                                <li>내용1</li>
+                                <li>내용2</li>
+                                <li>내용3</li>
+                                <li>내용4</li>
+                                <li>내용5</li>
+                            </ul>
+                        </div>
+                        <div id="menu_benefit2" class="content_menu">
+                            <ul class="menu_benetfit2_content">
+                                <li>내용1</li>
+                                <li>내용2</li>
+                                <li>내용3</li>
+                                <li>내용4</li>
+                                <li>내용5</li>
+                            </ul>
+                        </div>
+                    </div>
+
                     <ul class="intro_menu2">
                         <li>복귀유저</li>
                         <li>VIP유저</li>
                     </ul>
+
+
+
 
                     <div class="intro_menu_src">
                         <img src="img/7.inmeny2.png">
@@ -497,6 +711,17 @@
                     <div class="intro_menu_src2">
                         <img src="img/7.inmenu1.png">
                     </div>
+
+                    <main_btn>
+                        <div class="click_intro" onclick="window.location.href='https://www.naver.com'"></div>
+                        <div class="click_intro2" onclick="window.location.href='https://www.naver.com'"></div>
+
+                        <div class="click_page1" onclick="window.location.href='https://www.naver.com'"></div>
+                        <div class="click_page2" onclick="window.location.href='https://www.naver.com'"></div>
+                        <div class="click_page3" onclick="window.location.href='https://www.naver.com'"></div>
+                        <div class="click_page4" onclick="window.location.href='https://www.naver.com'"></div>
+                        <div class="click_page5" onclick="window.location.href='https://www.naver.com'"></div>
+                    </main_btn>
                 </intro>
             </contents>
 
@@ -514,9 +739,6 @@
                 menu.addEventListener('mouseleave', () => {
                     whiteBox.style.display = 'none';
                 });
-
-
-
 
 
                 const slides = document.querySelectorAll('.slide');
@@ -549,11 +771,23 @@
                     showSlide(currentSlide);
                 }
 
-                // Show the first slide
                 showSlide(currentSlide);
 
-                // Automatic slideshow
                 setInterval(nextSlide, 3000);
+
+                function showContent(className) {
+                    var contents = document.querySelectorAll('.content_menu');
+                    contents.forEach(content => {
+                        content.classList.remove('active');
+                    });
+                    
+                    var activeContent = document.getElementById(className);
+                    activeContent.classList.add('active');
+                }
+
+                document.addEventListener('DOMContentLoaded', () => {
+                    showContent('menu_introduce');
+                });
 
             </script>
         </body>
