@@ -1,798 +1,219 @@
 <html>
+	<head>
+	<title> 이력서-김가현 </title>
+	</head>
+	<body>
+		<center>
+			<table bgcolor=#000000 bordercolor="black" width="704" border="3" cellspacing="1" cellpadding="0">
 
-    <head>
-        <meta charset="utf-8">
-        <style>
-            @font-face {
-                font-family: 'HBIOS-SYS';
-                src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/HBIOS-SYS.woff2') format('woff2');
-                font-weight: normal;
-                font-style: normal;
-            }
-
-            #wrapper {
-                width:1650px;
-            }
-
-            body{
-                font-family: 'HBIOS-SYS';
-                width: 1650px;
-            }
-            
-            header {
-                background-color: #ffffff;
-                padding: 10px 20px;
-            }
-
-            nav {
-                display: flex;
-                align-items: center;
-                position: relative;
-            }
-
-            #logo {
-                flex: 0 0 auto;
-                margin-right: auto; /* 로고를 왼쪽에 치우치게 함 */
-                margin-left: 20px;
-            }
-
-            #logo img {
-                width: 200px;
-            }
-
-            .menu {
-                width:auto;
-                list-style: none;
-                display: flex;
-                padding: 20px 0px;
-                margin: 5px 20px;
-                flex: 1 0 auto;
-                justify-content: center;
-                gap: 8%;
-                z-index: 10;
-            }
-
-            .menu li {
-                position: relative;
-            }
-
-            .menu li a {
-                text-decoration: none;
-                color: #000000;
-                padding: 10px;
-                transition: color 0.3s;
-                font-size: 22px;
-            }
-
-            .submenu {
-                background-attachment: fixed; /*확인요망*/
-                background-color: hsla(0, 0%, 88%, 0);
-                display: none;
-                position: absolute;
-                top: 270%;
-                left:50%;
-                transform: translateX(-50%);
-                list-style: none;
-                padding: 10px 0;
-                text-align: center;
-                margin: 0 auto;
-                z-index: 10; /* 메뉴가 다른 요소 위에 나타나도록 설정 */
-            }
-
-            .submenu li {
-                margin: 0;
-                flex: 1;
-            }
-
-            .submenu li a {
-                padding: 10px 20px;  /*회색깔 그거 넓이*/
-                font-size: 15px;
-                display: inline-block;
-                white-space: nowrap;
-                text-align: center;
-            }
-
-            .menu:hover .submenu {
-                display: block;
-            }
-
-            #login_img {
-                flex: 0 0 auto;
-                width: 30px;
-                margin-left: 20px; /* 오른쪽에 치우치게 하고 메뉴와 간격 설정 */
-                margin-right: 22px;
-            }
-
-            #alram_img {
-                flex: 0 0 auto;
-                width: 30px;
-                margin-left: 20px; /* 오른쪽에 치우치게 하고 메뉴와 간격 설정 */
-                margin-right: 10px;
-            }
-
-            #alram_img img {
-                width: 80%; /* 부모 div의 너비에 맞춤 */
-            }
-
-            #login_img img{
-                width: 100%;
-            }
-
-            .white {
-                width: 120%;
-                height: 170px;
-                background-color: hsla(0, 0%, 86%, 0.757);
-                display: none;
-                position: absolute;
-                top: 82px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 10;
-            }
-
-            .black_line {
-                width: 1670px;
-                height: 2px;
-                background-color: hsl(0, 0%, 0%);
-                display: inline-block;
-                position: absolute;
-                top: 80px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 5;
-            }
-
-
-
-
-            
-            .contents_events_img{
-                position: absolute;
-                left: 320px;
-                top:330px;
-                z-index:3;
-            }
-
-            .contents_events_img img{
-                width: 72%;
-                opacity: 75%;
-            }
-
-            .contents_img {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                position: relative;
-                left: 60px;
-                top: 60px;
-                z-index: 2;
-            }
-
-            .slide {
-                display: none;
-                position: absolute;
-                top: 10px;
-                left: 100%;
-                transition: left 0.5s ease-in-out;
-            }
-
-            .slide.active {
-                display: block;
-                left: 0;
-            }
-
-            .slide.previous {
-                left: -100%;
-            }
-
-            .slide.next {
-                transform: translateX(100%);
-            }
-
-            .slide img {
-                width: 74.5%;
-                height: auto;
-                cursor: pointer;
-            }
-
-            .slide .prev-btn,
-            .slide .next-btn {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                width: 100px;
-                height: 100px;
-                background-color: rgba(158, 158, 158, 0.5);
-                cursor: pointer;
-                z-index: 10;
-            }
-
-            .slide .prev-btn {
-                left: 0;
-            }
-
-            .slide .next-btn {
-                left: 944px;
-            }
-
-
-
-
-            .black_background {
-                width: 100%;
-                height: 600px;
-                background:linear-gradient(to bottom,#ebebeb, #ebebeb);
-                display: inline-block;
-                position: absolute;
-                top: 98px;
-                left: 50%;
-                transform: translateX(-50%);
-                z-index: 1;
-            }
-
-
-            .game_start{
-                position: absolute;
-                top: 165px;
-                left: 1179px;
-                z-index: 8;
-            }
-
-            .game_start img {
-                width: 400px;
-            }
-
-            .game_login{
-                position: absolute;
-                top: 440px;
-                left:1179px;
-                z-index: 8;
-            }
-
-            .game_login img{
-                width:400px;
-            }
-
-            .intro_{
-                position: absolute;
-                left: 30px;
-                top: 730px;
-                display: flex;
-                justify-content: space-between;
-                width: 693px;
-
-            }
-
-            #intro1{
-                font-size: 30px;
-                list-style-type: none;
-            }
-            
-            #intro2{
-                font-size: 30px;
-                list-style-type: none;
-                left: 300px;
-            }
-
-            .intro_menu {
-                position: absolute;
-                left: 60px;
-                top: 800px;
-                display: flex;
-                justify-content: space-between;
-                width: 373px;
-                z-index: 9;
-            }
-
-            .intro_menu li{
-                list-style-type: none;
-                font-size: 22px;
-            }
-
-            .intro_menu_src{
-                position: absolute;
-                left: 70px;
-                top:760px;  
-                z-index: 2;
-            }
-
-            .intro_menu_src img{
-                width: 75%;
-
-            }
-
-            .intro_menu2 {
-                position: absolute;
-                left:655px;
-                top: 800px;
-                display: flex;
-                justify-content: space-between;
-                width: 307px;
-                z-index: 9;
-            }
-
-            .intro_menu2 li{
-                list-style-type: none;
-                font-size: 22px;
-            }
-
-            .intro_menu_src2{
-                position: absolute;
-                left: 630px;
-                top:760px;  
-                z-index: 2;
-            }
-
-            .intro_menu_src2 img{
-                width: 75%;
-
-            }
-
-            .click_intro {
-            position: absolute;
-            left: 480px;
-            top: 756px;
-            width: 35px;
-            height: 35px;
-            background-color: rgba(0, 0, 255, 0); /* 반투명 파란색으로 영역 표시 (필요 시 제거 가능) */
-            cursor: pointer;
-            z-index: 15;
-        }
-
-        .click_intro2 {
-            position: absolute;
-            left: 1037.5px;
-            top: 756px;
-            width: 35px;
-            height: 35px;
-            background-color: rgba(0, 0, 255, 0); /* 반투명 파란색으로 영역 표시 (필요 시 제거 가능) */
-            cursor: pointer;
-            z-index: 15;
-        }
-
-        .click_page1 {
-            position: absolute;
-            left: 1037.5px;
-            top: 756px;
-            width: 35px;
-            height: 35px;
-            background-color: rgba(0, 0, 255, 0); /* 반투명 파란색으로 영역 표시 (필요 시 제거 가능) */
-            cursor: pointer;
-            z-index: 15;
-        }
-
-
-        .intro_menu_btn{
-            position: absolute;
-            left:71px;
-            top:795.5px;
-            display: flex;
-            justify-content: space-between;
-            width: 447px;
-            height: 58px;
-            z-index: 50;
-            opacity: 0%;
-        }
-
-        .intro_menu_btn2{
-            position: absolute;
-            left: 631px;
-            top:795.5px;
-            display: flex;
-            justify-content: space-between;
-            width: 447px;
-            height: 58px;
-            z-index: 50;
-            opacity:0%;
-        }
-
-        .intro_menu_btn button{
-            cursor: pointer;
-        }
-
-        .content_menu {
-            display: none;
-            border: 5px solid #6b000000;
-            width: 300px;
-            top:1700px;
-        }
-
-        .content_menu.active {
-            display: block;
-        }
-
-        .intro_menu_content{
-            position: absolute;
-            top:855px;
-            left:31px;
-            z-index: 90;
-        }
-
-        .menu_introduce_content{
-            list-style-type: none;
-        }
-
-        .menu_introduce_content li{
-            font-size: 15px;
-            justify-content: last baseline;
-            height: 58.2px;
-        }
-
-        .menu_update_content{
-            list-style-type: none;
-        }
-
-        .menu_update_content li{
-            font-size: 15px;
-            justify-content: last baseline;
-            height: 58.2px;
-        }
-
-        .menu_event_content{
-            list-style-type: none;
-        }
-
-        .menu_event_content li{
-            font-size: 15px;
-            justify-content: last baseline;
-            height: 58.2px;
-        }
-
-        .menu_benefit1_content{
-            list-style-type: none;
-        }
-
-        .menu_benefit1_content li{
-            font-size: 15px;
-            justify-content: last baseline;
-            height: 58.2px;
-        }
-
-        .menu_benetfit2_content{
-            list-style-type: none;
-        }
-
-        .menu_benetfit2_content li{
-            font-size: 15px;
-            justify-content: last baseline;
-            height: 58.2px;
-        }
-
-
-        .c_l1{
-            position: absolute;
-            top:910px;
-            left: 68px;
-            width: 450px;
-        }
-        
-        .c_l2{
-            position: absolute;
-            top:910px;
-            left: 630px;
-            width: 450px;
-        }
-
-
-        </style>
-    </head>
-
-    <div id="wrapper">
-        <body>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/quiple/hbios-sys@latest/hbios-sys.css">
-            <header>
-                <nav>
-                    <div class="black_line"></div>
-                    <div class="white"></div>
-                    
-                    <class id="logo">
-                        <a href="https://www.naver.com/">
-                            <img src="img/1.logo.png">
-                        </a>
-                    </class>
-
-                    <ul class="menu"> <!--a hred #~ 앵커, 즉 그곳으로 이동하게 해주는 것임-->
-                        <li class="new_so">
-                            <a href="https://www.naver.com/">새소식</a>
-                            <ul class="submenu">
-                                <li><a href="#">공지사항</a></li>
-                                <li><a href="#">업데이트</a></li>
-                                <li><a href="#">이벤트</a></li>
-                            </ul>
-                        </li>
-                        <li class="game_in">
-                            <a href="https://www.naver.com/">게임 소개</a>
-                            <ul class="submenu">
-                                <li><a href="#">게임 소개</a></li>
-                                <li><a href="#">스토리 소개</a></li>
-                                <li><a href="#">캐릭터 소개</a></li>
-                                <li><a href="#">게임 가이드</a></li>
-                            </ul>
-                        </li>
-                        <li class="community">
-                            <a href="https://www.naver.com/">커뮤니티</a>
-                            <ul class="submenu">
-                                <li><a href="#">소통 게시판</a></li>
-                                <li><a href="#">문의 게시판</a></li>
-                                <li><a href="#">공략 게시판</a></li>
-                                <li><a href="#">길드 게시판</a></li>
-                            </ul>
-                        </li>
-                        <li class="ranking">
-                            <a href="https://www.naver.com/">랭킹</a>
-                            <ul class="submenu">
-                                <li><a href="#">레벨 랭킹</a></li>
-                                <li><a href="#">맵 랭킹</a></li>
-                                <li><a href="#">이벤트 랭킹</a></li>
-                            </ul>
-                        </li>
-                        <li class="plz">
-                            <a href="https://www.naver.com/">고객 지원</a>
-                            <ul class="submenu">
-                                <li><a href="#">도움말</a></li>
-                                <li><a href="#">다운로드</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-
-                    <div id="alram_img">
-                        <a href="https://www.naver.com/">
-                            <img width="20%" src="img/2.alram.png">
-                        </a>
-                    </div>
-                    <div id="login_img">
-                        <a href="https://www.naver.com/">
-                            <img width="20%" src="img/3.profile.png">
-                        </a>
-                    </div>
-                </nav>
-            </header>
-
-            <contents>
-                <background>
-                    <div class="black_background"></div>
-                </background>
-
-                <article>
-                    <div class="contents_events_img">
-                        <img src="img/8.events.png">
-                    </div>
-                    <div class="contents_img">
-                        <div id="contents_img1" class="slide active">
-                            <a href="javascript:void(0)" onclick="prevSlide()">
-                                <div class="prev-btn"></div>
-                            </a>
-                            <a href="javascript:void(0)" onclick="nextSlide()">
-                                <div class="next-btn"></div>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <img src="img/4.contents1.png" alt="Image 1">
-                            </a>
-                        </div>
-                        <div id="contents_img2" class="slide">
-                            <a href="javascript:void(0)" onclick="prevSlide()">
-                                <div class="prev-btn"></div>
-                            </a>
-                            <a href="javascript:void(0)" onclick="nextSlide()">
-                                <div class="next-btn"></div>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <img src="img/4.contents2.png" alt="Image 2">
-                            </a>
-                        </div>
-                        <div id="contents_img3" class="slide">
-                            <a href="javascript:void(0)" onclick="prevSlide()">
-                                <div class="prev-btn"></div>
-                            </a>
-                            <a href="javascript:void(0)" onclick="nextSlide()">
-                                <div class="next-btn"></div>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <img src="img/4.contents3.png" alt="Image 3">
-                            </a>
-                        </div>
-                        <div id="contents_img4" class="slide">
-                            <a href="javascript:void(0)" onclick="prevSlide()">
-                                <div class="prev-btn"></div>
-                            </a>
-                            <a href="javascript:void(0)" onclick="nextSlide()">
-                                <div class="next-btn"></div>
-                            </a>
-                            <a href="https://www.naver.com/">
-                                <img src="img/4.contents4.png" alt="Image 4">
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="game_start">
-                        <a href="https://www.naver.com/">
-                            <img src="img/5.gamestart.png">
-                        </a>
-                    </div>
-
-                    <div class="game_login">
-                        <a href="game_login">
-                            <img src="img/6.login.png">
-                        </a>
-                    </div>
-                </article>
-
-
-                <intro>
-                    <ul class="intro_">
-                        <li id="intro1">게임 소식 </li>
-                        <li id="intro2">게임 혜택 </li>
-                    </ul>
-                
-                    <ul class=intro_menu>
-                        <li>공지사항</li>
-                        <li>업데이트</li>
-                        <li>이벤트</li>
-                    </ul>
-
-                    <div class="content_line">
-                        <img class="c_l1" src="img/9.contents_line.png">
-                        <img class="c_l2" src="img/9.contents_line.png">
-                    </div>
-
-                    <div class="intro_menu_btn">
-                        <button onclick="showContent('menu_introduce')">공지사항공백공백공백</button>
-                        <button onclick="showContent('menu_update')">업데이트공백공백공백</button>
-                        <button onclick="showContent('menu_event')">이벤트공백공백공백공</button>
-                    </div>
-                
-                    <div class="intro_menu_btn2">
-                        <button onclick="showContent('menu_benefit1')">복귀유저공백공백공백공백공백공백백.</button>
-                        <button onclick="showContent('menu_benefit2')">VIP유저공백공백공백공백공백공백111</button>
-                    </div>
-                
-                    <div class="intro_menu_content">
-                        <div id="menu_introduce" class="content_menu">
-                            <ul class="menu_introduce_content">
-                                <li>공지사항내용1</li>
-                                <li>공지사항내용2</li>
-                                <li>공지사항내용3</li>
-                                <li>공지사항내용4</li>
-                                <li>공지사항내용5</li>
-                            </ul>
-                        </div>
-                        <div id="menu_update" class="content_menu">
-                            <ul class="menu_update_content">
-                                <li>업데이트내용1</li>
-                                <li>업데이트내용2</li>
-                                <li>업데이트내용3</li>
-                                <li>업데이트내용4</li>
-                                <li>업데이트내용5</li>
-                            </ul>
-                        </div>
-                        <div id="menu_event" class="content_menu">
-                            <ul class="menu_event_content">
-                                <li>이벤트내용1</li>
-                                <li>이벤트내용2</li>
-                                <li>이벤트내용3</li>
-                                <li>이벤트내용4</li>
-                                <li>이벤트내용5</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <ul class="intro_menu2">
-                        <li>복귀유저</li>
-                        <li>VIP유저</li>
-                    </ul>
-                    <div class="intro_menu_content2">
-                        <div id="menu_benefit1" class="content_menu2">
-                            <ul class="menu_benefit1_content">
-                                <li>내용1</li>
-                                <li>내용2</li>
-                                <li>내용3</li>
-                                <li>내용4</li>
-                                <li>내용5</li>
-                            </ul>
-                        </div>
-                        <div id="menu_benefit2" class="content_menu2">
-                            <ul class="menu_benetfit2_content">
-                                <li>내용1</li>
-                                <li>내용2</li>
-                                <li>내용3</li>
-                                <li>내용4</li>
-                                <li>내용5</li>
-                            </ul>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="intro_menu_src">
-                        <img src="img/7.inmeny2.png">
-                        <map name="inmenu2">
-                            <area shape="rect" coords=" " href="https://www.naver.com/" alt="공지사항">
-                        </map>
-                    </div>
-                    <div class="intro_menu_src2">
-                        <img src="img/7.inmenu1.png">
-                    </div>
-
-                    <main_btn>
-                        <div class="click_intro" onclick="window.location.href='https://www.naver.com'"></div>
-                        <div class="click_intro2" onclick="window.location.href='https://www.naver.com'"></div>
-
-                        <div class="click_page1" onclick="window.location.href='https://www.naver.com'"></div>
-                        <div class="click_page2" onclick="window.location.href='https://www.naver.com'"></div>
-                        <div class="click_page3" onclick="window.location.href='https://www.naver.com'"></div>
-                        <div class="click_page4" onclick="window.location.href='https://www.naver.com'"></div>
-                        <div class="click_page5" onclick="window.location.href='https://www.naver.com'"></div>
-                    </main_btn>
-                </intro>
-            </contents>
-
-            <footer></footer>
-
-
-            <script>
-                const menu = document.querySelector('.menu');
-                const whiteBox = document.querySelector('.white');
-
-                menu.addEventListener('mouseenter', () => {
-                    whiteBox.style.display = 'block';
-                });
-
-                menu.addEventListener('mouseleave', () => {
-                    whiteBox.style.display = 'none';
-                });
-
-
-                const slides = document.querySelectorAll('.slide');
-                const totalSlides = slides.length;
-                let currentSlide = 0;
-
-                function showSlide(n) {
-                    slides.forEach(slide => slide.classList.remove('active', 'previous', 'next'));
-
-                    slides[n].classList.add('active');
-                    if (n === 0) {
-                        slides[totalSlides - 1].classList.add('previous');
-                        slides[n + 1].classList.add('next');
-                    } else if (n === totalSlides - 1) {
-                        slides[n - 1].classList.add('previous');
-                        slides[0].classList.add('next');
-                    } else {
-                        slides[n - 1].classList.add('previous');
-                        slides[n + 1].classList.add('next');
-                    }
-                }
-
-                function nextSlide() {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    showSlide(currentSlide);
-                }
-
-                function prevSlide() {
-                    currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-                    showSlide(currentSlide);
-                }
-
-                showSlide(currentSlide);
-
-                setInterval(nextSlide, 3000);
-
-                function showContent(className) {
-                    var contents = document.querySelectorAll('.content_menu');
-                    contents.forEach(content => {
-                        content.classList.remove('active');
-                    });
-                    
-                    var activeContent = document.getElementById(className);
-                    activeContent.classList.add('active');
-                }
-
-                document.addEventListener('DOMContentLoaded', () => {
-                    showContent('menu_introduce');
-                });
-
-            </script>
-        </body>
-    </div>
 
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="1" width="140" height="0"> </td>
+					<td colspan="1" width="100" height="0"> </td>
+					<td colspan="1" width="80" height="0"> </td>
+					<td colspan="1" width="90" height="0"> </td>
+					<td colspan="1" width="85" height="0"> </td>
+					<td colspan="1" width="15" height="0"> </td>
+					<td colspan="1" width="60" height="0"> </td>
+					<td colspan="1" width="134" height="0"> </td>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td style="line-height:0" colspan="1" rowspan="5" height="200"> <IMG src="./a.jpg"  ="140" height="203">
+					</td>
+					<th colspan="7" height="60" style="background-color:#c0c0c0"> <font size="5"> <b>이ㅤㅤㅤ력ㅤㅤㅤ서</b></font>
+					</th>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="1" rowspan="2" height=46" style="text-align:center;background-color:#E6E6E6">성 명
+					</td>
+					<td colspan="1" height="23" style="text-align:center;">한 글
+					</td>
+					<td colspan="3" height="23" style="text-align:center"> 김가현(金佳賢)
+					</td>
+					<td colspan="2" height="23" style="text-align:center;background-color:#E6E6E6"> 주민등록번호
+					</td>
+				</tr>
+
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="1" height="23" style="text-align:center;">영 문
+					</td>
+					<td colspan="3" height="23" style="text-align:center;">KimGaHyun
+					</td>
+					<td colspan="2" height="23" style="text-align:center;"> 24021-10339
+					</td>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="1 height="47" style="text-align:center;background-color:#E6E6E6"> 생년월일
+					</td>
+					<td colspan="6" height="47" style="text-align:center;"> 2004년 1월 27일생 (만 20세)
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td coslpan="1" height="47" style="text-align:center;background-color:#E6E6E6"> 휴 대 폰
+					</td>
+					<td colspan="2" height="47" style="text-align:center;"> 010-2004-0127
+					</td>
+					<td colspan="2" height="47" style="text-align:center;background-color:#e6e6e6"> 메 일
+					</td>
+					<td colspan="2" height="47" style="text-align:center;"> kimgh0127@naver.com
+					</td>
+				</tr>
+
+
+
+
+
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="1" height="60" style="text-align:center;background-color:#E6E6E6"> 현 주 소
+					</td>
+					<td colspan="7" height="60" style="text-align:center;"> 인천 서창 AI융합소프트웨어아파트 2004동 127호
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="1"  height="60" style="text-align:center;background-color:#E6E6E6"> 취 미
+					</td>
+					<td colspan="7" height="60" style="text-align:center;"> 글 작업, 글 교정					</td>
+				</tr>
+
+
+
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="8" height="60" style="text-align:center;background-color:#E6E6E6"> 학 력 사 항
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center">기 간
+					</td>
+					<td colspan="5" height="60" style="text-align:center"> 학 교 명
+					</td>
+					<td colspan="1" height="60" style="text-align:center"> 졸 업 여 부
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 2011.03.02 ~ 2012.08.15
+					</td>
+					<td colspan="5" height="60" style="text-align:center">시흥월곶초등학교
+					</td>
+					<td colspan="1"height="60"  style="text-align:center">졸 업
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 2012.08.16 ~ 2017.02.10
+					</td>
+					<td colspan="5" height="60" style="text-align:center">인천한빛초등학교
+					</td>
+					<td colspan="1" height="60" style="text-align:center">졸 업
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 2017.03.02 ~ 2020.01.09
+					</td>
+					<td colspan="5" height="60" style="text-align:center"> 만월중학교
+					</td>
+					<td colspan="1" height="60" style="text-align:center">졸 업
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 2020.03.02 ~ 2023.02.10
+					</td>
+					<td colspan="5" height="60" style="text-align:center"> 인천고잔고등학교
+					</td>
+					<td colspan="1" height="60" style="text-align:center">졸 업
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 2024.03.04 ~ 2026.02.05
+					</td>
+					<td colspan="5" height="60" style="text-align:center"> 한국폴리텍대학교
+					</td>
+					<td colspan="1" height="60" style="text-align:center">재 학 중
+					</td>
+				</tr>
+
+
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="8" height="60" style="text-align:center;background-color:#E6E6E6"> 경 력 사 항
+					</td>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2"  height="60" style="text-align:center"> 기 간
+					</td>
+					<td colspan="2"  height="60" style="text-align:center"> 회사명
+					</td>
+					<td colspan="4"  height="60" style="text-align:center"> 기 타
+					</td>
+				</tr>
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2"  height="60" style="text-align:center"> 
+					</td>
+					<td colspan="2"  height="60" style="text-align:center"> 
+					</td>
+					<td colspan="4"  height="60" style="text-align:center"> 
+					</td>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="8" height="60" style="text-align:center;background-color:#E6E6E6"> 자 격 증
+					</td>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 자 격 증 명
+					</td>
+					<td colspan="2" height="60" style="text-align:center"> 취 득 일
+					</td>
+					<td colspan="2" height="60" style="text-align:center"> 등 급
+					</td>
+					<td colspan="2" height="60" style="text-align:center"> 발 급 기 관
+					</td>
+				</tr>
+
+
+				<tr bgcolor=#FFFFFF>
+					<td colspan="2" height="60" style="text-align:center"> 
+					</td>
+					<td colspan="2" height="60" style="text-align:center"> 
+					</td>
+					<td colspan="2" height="60" style="text-align:center"> 
+					</td>
+					<td colspan="2" height="60" style="text-align:center">
+					</td>
+				</tr>
+
+
+
+
+
+
+			</table>
+		</center>
+	</body>
 </html>
